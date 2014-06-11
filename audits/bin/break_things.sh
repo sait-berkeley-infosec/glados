@@ -9,7 +9,7 @@ RESULTS="results-$(date +%F).jtr"
 JOHN="/opt/jtr"
 
 echo "NWOLD SMASH!"
-if [ -f $JAIL/*.ldif ] || [ -f $ROOT/dumps ]
+if [ -f $JAIL/*.ldif ] || [ -f $ROOT/dumps/*.ldif ]
 then
     echo "Dump files found!"
     mkdir -p $ROOT/tmp
