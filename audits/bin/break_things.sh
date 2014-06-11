@@ -11,7 +11,9 @@ JOHN="/opt/jtr"
 echo "NWOLD SMASH!"
 if [ -f $JAIL/*.ldif ]
     echo "Dump files found!"
-    mkdir $ROOT/tmp
+    if [ ! -f $ROOT/tmp ]
+        mkdir $ROOT/tmp
+    fi
     then
         # Move all LDAP dumps from the jail to the dump folder.
         mv $JAIL/*.ldif $ROOT/dumps/
