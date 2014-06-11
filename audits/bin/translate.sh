@@ -16,6 +16,7 @@ BEGIN {
     badShells["/sbin/nologin"] = 1;
     badShells["/home/relay/bin/noshell"] = 1;
     badShells["/usr/sbin/nologin"] = 1;
+    badShells["nil"] = 1;
 }
 {
     if ($0 ~ username) {
