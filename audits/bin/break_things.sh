@@ -16,7 +16,7 @@ if [ -f $JAIL/*.ldif ]
         # Move all LDAP dumps from the jail to the dump folder.
         mv $JAIL/*.ldif $ROOT/dumps/
         # Translate each file and append the results to a text file.
-        for file in "$ROOT/dumps/*.ldif"
+        for file in $ROOT/dumps/*.ldif
         do
             echo "Translating ${file}..."
             $ROOT/bin/translate.sh ${file} >> $ROOT/tmp/$RESULTS
