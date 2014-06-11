@@ -7,19 +7,19 @@ ROOT="/opt/glados/audits"
 JAIL="/srv/sftpjail/home/audit"
 RESULTS="results-$(date +%F).jtr"
 JOHN="/opt/jtr"
-JAIL=0
+NEW=0
 DUMPS=0
 
 echo "NWOLD SMASH!"
 if [ -f $JAIL/*.ldif ]
 then
-    JAIL=1
+    NEW=1
 fi
 if [ -f $ROOT/dumps/*.ldif ]
 then
     DUMPS=1
 fi
-if [ $JAIL==1 ] || [ $DUMPS==1 ]
+if [ $NEW==1 ] || [ $DUMPS==1 ]
 then
     echo "Dump files found!"
     mkdir -p $ROOT/tmp
