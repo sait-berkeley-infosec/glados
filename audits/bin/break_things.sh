@@ -27,6 +27,7 @@ then
     if [ $NEW==1 ]
     then
         echo "FUCK MY LIFE"
+        echo $NEW
         mv $JAIL/*.ldif $ROOT/dumps/
     fi
     # Translate each file and append the results to a text file.
