@@ -10,18 +10,19 @@ JOHN="/opt/jtr"
 
 echo "NWOLD SMASH!"
 if [ -f $JAIL/*.ldif ]
+then
     echo "Dump files found!"
     if [ ! -f $ROOT/tmp ]
+    then
         mkdir $ROOT/tmp
     fi
-    then
-        # Move all LDAP dumps from the jail to the dump folder.
-        mv $JAIL/*.ldif $ROOT/dumps/
-        # Translate each file and append the results to a text file.
-        for file in $ROOT/dumps/*.ldif
-        do
-            echo "Translating ${file}..."
-            $ROOT/bin/translate.sh ${file} >> $ROOT/tmp/$RESULTS
-        done
-        #"$JOHN/run/john" "$ROOT/tmp/$RESULTS" PUT MORE COMMAND LINE STUFF HERE
+    # Move all LDAP dumps from the jail to the dump folder.
+    mv $JAIL/*.ldif $ROOT/dumps/
+    # Translate each file and append the results to a text file.
+    for file in $ROOT/dumps/*.ldif
+    do
+        echo "Translating ${file}..."
+        $ROOT/bin/translate.sh ${file} >> $ROOT/tmp/$RESULTS
+    done
+    #"$JOHN/run/john" "$ROOT/tmp/$RESULTS" PUT MORE COMMAND LINE STUFF HERE
 fi
