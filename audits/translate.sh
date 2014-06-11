@@ -5,8 +5,8 @@
 # Returns a list of all usernames and passwords
 # so that John the Ripper can read it.
 BEGIN {
-    username="^uid.*$";
-    password="^userPassword.*$";
+    username="^uid:.*$";
+    password="^userPassword:.*$";
     cur_user = "nil";
     cur_pass = "nil";
     OFS=":";
