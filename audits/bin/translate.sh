@@ -18,7 +18,6 @@ BEGIN {
     badShells["/usr/sbin/nologin"] = 1;
 }
 {
-    print cur_user, cur_pass, cur_shell;
     if ($0 ~ username) {
         if (cur_user == "nil") {
             cur_user = $2;
