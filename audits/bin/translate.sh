@@ -12,7 +12,8 @@ BEGIN {
     cur_pass = "nil";
     cur_shell = "nil";
     OFS=":";
-    badShells[0] = "/usr/local/rescomp/sbin/badpassword";
+    badShells["/usr/local/rescomp/sbin/badpassword"] = 1;
+    badShells["/sbin/nologin"] = 1;
 }
 {
     if ($0 ~ username) {
