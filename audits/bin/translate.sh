@@ -11,7 +11,7 @@ BEGIN {
     cur_user = "nil";
     cur_pass = "nil";
     cur_shell = "nil";
-    FS=":(:)?";
+    FS=":(:)? ";
     OFS=":";
     badShells["/usr/local/rescomp/sbin/badpassword"] = 1;
     badShells["/sbin/nologin"] = 1;
