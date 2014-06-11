@@ -13,11 +13,11 @@ DUMPS=0
 echo "NWOLD SMASH!"
 if [ -f $JAIL/*.ldif ]
 then
-    $JAIL=1
+    JAIL=1
 fi
 if [ -f $ROOT/dumps/*.ldif ]
 then
-    $DUMPS=1
+    DUMPS=1
 fi
 if [ $JAIL==1 ] || [ $DUMPS==1 ]
 then
