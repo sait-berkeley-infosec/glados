@@ -32,8 +32,10 @@ BEGIN {
         }
     }
     if ($0 ~ password) {
+        print "DEBUG", $2;
         cmd = "echo "$2" | base64 --decode";
         cmd | getline cur_pass;
+        print "DEBUG", cur_pass;
         close(cmd);
     }
     if ($0 ~ shell) {
