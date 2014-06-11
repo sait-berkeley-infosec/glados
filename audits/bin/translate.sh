@@ -24,7 +24,7 @@ BEGIN {
             cur_user = $2;
         } else {
             if (cur_user != "nil" && cur_pass != "nil" && !(cur_shell in badShells)) {
-                print cur_user, cur_pass, cur_shell;
+                print cur_user, cur_pass;
             }
             cur_user = $2;
             cur_pass = "nil";
