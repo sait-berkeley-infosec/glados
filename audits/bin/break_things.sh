@@ -12,10 +12,7 @@ echo "NWOLD SMASH!"
 if [ -f $JAIL/*.ldif ]
 then
     echo "Dump files found!"
-    if [ ! -f $ROOT/tmp ]
-    then
-        mkdir $ROOT/tmp
-    fi
+    mkdir -p $ROOT/tmp
     # Move all LDAP dumps from the jail to the dump folder.
     mv $JAIL/*.ldif $ROOT/dumps/
     # Translate each file and append the results to a text file.
