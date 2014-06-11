@@ -34,7 +34,6 @@ BEGIN {
     if ($0 ~ password) {
         cmd = "echo "$2" | base64 --decode";
         cmd | getline cur_pass;
-        sub(/base64.*/, "", cur_pass);
         close(cmd);
     }
     if ($0 ~ shell) {
