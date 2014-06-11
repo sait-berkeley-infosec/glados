@@ -6,7 +6,7 @@
 # so that John the Ripper can read it.
 BEGIN {
     username="^uid:.*$";
-    password="^userPassword:.*$";
+    password="^userPassword:(:)?.*$";
     shell="^loginShell:.*$";
     cur_user = "nil";
     cur_pass = "nil";
