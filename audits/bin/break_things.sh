@@ -26,6 +26,7 @@ then
     # Move all LDAP dumps from the jail to the dump folder.
     if [ $NEW==1 ]
     then
+        echo "FUCK MY LIFE"
         mv $JAIL/*.ldif $ROOT/dumps/
     fi
     # Translate each file and append the results to a text file.
