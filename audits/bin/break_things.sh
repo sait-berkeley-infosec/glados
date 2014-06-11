@@ -24,7 +24,7 @@ then
     echo "Dump files found!"
     mkdir -p $ROOT/tmp
     # Move all LDAP dumps from the jail to the dump folder.
-    if [ $DUMPS==1 ]
+    if [ $NEW==1 ]
     then
         mv $JAIL/*.ldif $ROOT/dumps/
     fi
