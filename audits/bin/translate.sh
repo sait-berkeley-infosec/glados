@@ -18,7 +18,7 @@ BEGIN {
         if (cur_user == "nil") {
             cur_user = $2;
         } else {
-            if (cur_user != nil && cur_pass != nil) {
+            if (cur_user != "nil" && cur_pass != "nil") {
                 print cur_user, cur_pass, cur_shell;
             }
             cur_user = "nil";
