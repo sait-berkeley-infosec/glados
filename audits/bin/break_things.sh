@@ -9,8 +9,9 @@ RESULTS="results-$(date +%F).jtr"
 JOHN="/opt/jtr"
 
 echo "NWOLD SMASH!"
-if [ -f "$JAIL/*.ldif" ]
+if [ -f $JAIL/*.ldif ]
     echo "Dump files found!"
+    mkdir $ROOT/tmp
     then
         # Move all LDAP dumps from the jail to the dump folder.
         mv $JAIL/*.ldif $ROOT/dumps/
