@@ -7,14 +7,27 @@ ROOT="/opt/glados/audits"
 JAIL="/srv/sftpjail/home/audit"
 RESULTS="results-$(date +%F).jtr"
 JOHN="/opt/jtr"
+JAIL=0
+DUMPS=0
 
 echo "NWOLD SMASH!"
-if [ -f $JAIL/*.ldif ] || [ -f $ROOT/dumps/*.ldif ]
+if [ -f $JAIL/*.ldif ]
+then
+    $JAIL=1
+fi
+if [ -f $ROOT/dumps/*.ldif ]
+then
+    $DUMPS=1
+fi
+if [ $JAIL==1 ] || [ $DUMPS==1 ]
 then
     echo "Dump files found!"
     mkdir -p $ROOT/tmp
     # Move all LDAP dumps from the jail to the dump folder.
-    mv $JAIL/*.ldif $ROOT/dumps/
+    if [ $DUMPS==1 ]
+    then
+        mv $JAIL/*.ldif $ROOT/dumps/
+    fi
     # Translate each file and append the results to a text file.
     for file in $ROOT/dumps/*.ldif
     do
