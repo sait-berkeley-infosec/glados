@@ -12,13 +12,14 @@ BEGIN {
     cur_pass = "nil";
     cur_shell = "nil";
     OFS=":";
+    badShells[0] = "/usr/local/rescomp/sbin/badpassword";
 }
 {
     if ($0 ~ username) {
         if (cur_user == "nil") {
             cur_user = $2;
         } else {
-            if (cur_user != "nil" && cur_pass != "nil") {
+            if (cur_user != "nil" && cur_pass != "nil" && !(cur_shell in badShells)) {
                 print cur_user, cur_pass, cur_shell;
             }
             cur_user = "nil";
