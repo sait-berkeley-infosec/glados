@@ -24,7 +24,7 @@ then
     echo "Dump files found!"
     mkdir -p $ROOT/tmp
     # Move all LDAP dumps from the jail to the dump folder.
-    if [ $NEW==1 ]
+    if [ "$NEW" -gt "1" ]
     then
         echo "FUCK MY LIFE"
         echo $NEW
