@@ -35,7 +35,7 @@ BEGIN {
         cmd | getline cur_pass;
         # Was getting some base64 errors from the hashes.
         # Filter those out.
-        if (cmd ~ "base64: invalid input") {
+        if (cur_pass ~ "base64: invalid input") {
             cmd = nil;
         }
         close(cmd);
