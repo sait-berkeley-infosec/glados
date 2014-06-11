@@ -33,6 +33,11 @@ BEGIN {
     if ($0 ~ password) {
         cmd = "echo "$2" | base64 --decode";
         cmd | getline cur_pass;
+        # Was getting some base64 errors from the hashes.
+        # Filter those out.
+        if (cmd ~ "base64: invalid input") {
+            cmd = nil;
+        }
         close(cmd);
     }
     if ($0 ~ shell) {
