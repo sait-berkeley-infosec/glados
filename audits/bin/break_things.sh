@@ -3,7 +3,7 @@
 # NWOLD SMASH.
 # Automates the process of fetching and translating
 # LDAP dumps.
-ROOT="/opt/audits"
+ROOT="/opt/glados/audits"
 JAIL="/srv/sftpjail/home/audit"
 RESULTS="results-$(date +%F).jtr"
 JOHN="/opt/jtr"
@@ -17,5 +17,5 @@ if [ -f "$JAIL/*.ldif" ]
         do
             "$ROOT/bin/translate.sh" ${file} >> "$ROOT/tmp/$RESULTS"
         done
-        "$JOHN/run/john" "$ROOT/tmp/$RESULTS" # PUT MORE COMMAND LINE STUFF HERE
+        #"$JOHN/run/john" "$ROOT/tmp/$RESULTS" PUT MORE COMMAND LINE STUFF HERE
 fi
