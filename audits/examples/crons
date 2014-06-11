@@ -1,0 +1,4 @@
+# Find if new dumps exist.
+# If so - rename and move to /tmp
+0 0 5 * * break_things.sh
+# Now that we moved them, we should create one file with them.
