@@ -7,6 +7,7 @@ ROOT="/opt/glados/audits"
 JAIL="/srv/sftpjail/home/audit"
 RESULTS="results-$(date +%F).jtr"
 JOHN="/opt/jtr"
+WORDLIST="/words.lst"
 NEW=0
 DUMPS=0
 
@@ -34,5 +35,6 @@ then
         echo "Translating ${file}..."
         $ROOT/bin/translate.sh ${file} >> $ROOT/tmp/$RESULTS
     done
-    #"$JOHN/run/john" "$ROOT/tmp/$RESULTS" PUT MORE COMMAND LINE STUFF HERE
+    $JOHN/run/john --wordlist=$WORDLIST --rules $ROOT/tmp/$RESULTS
+    $JOHN/run/john --show $ROOT/tmp/$RESULTS
 fi
