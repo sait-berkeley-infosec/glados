@@ -35,6 +35,6 @@ then
         echo "Translating ${file}..."
         $ROOT/bin/translate.sh ${file} >> $ROOT/tmp/$RESULTS
     done
-    $JOHN/run/john --wordlist=$WORDLIST --rules $ROOT/tmp/$RESULTS
+    $JOHN/run/john --wordlist=$ROOT/$WORDLIST --rules $ROOT/tmp/$RESULTS
     $JOHN/run/john --show $ROOT/tmp/$RESULTS
 fi
