@@ -42,7 +42,9 @@ if dumps:
     else:
         print "...Where'd my dog go?! [DEBUG]"
     log = open("%s/tmp/%s" % (ROOT, CRACKED), 'a')
-    subprocess.call(["%s/run/john" % JOHN, "--show", "%s/tmp/%s" % (ROOT, RESULTS)], stdout=log)
+    awk -F: '{print $1}' < cracked.txt
+    subprocess.call(["%s/run/john" % JOHN, "--show", "%s/tmp/%s" % (ROOT, RESULTS), "|",
+        "awk", "-F:", "'{print $1}'"], stdout=log)
     log.close()
 else:
     print "Nothing to see here..."
