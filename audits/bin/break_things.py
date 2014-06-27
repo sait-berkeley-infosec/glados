@@ -42,7 +42,7 @@ if dumps:
     else:
         print "...Where'd my dog go?! [DEBUG]"
     log = open("%s/tmp/%s" % (ROOT, CRACKED), 'a')
-    pot = subprocess.call(["%s/run/john" % JOHN, "--show", "%s/tmp/%s" % (ROOT, RESULTS), "|", "awk", "-F:", "'{print $1}'"], shell=True, stdout=log)
+    subprocess.call(["%s/run/john" % JOHN, "--show", "%s/tmp/%s" % (ROOT, RESULTS), "|", "awk", "-F:", "'{print $1}'"], shell=True, stdout=log)
     log.close()
 else:
     print "Nothing to see here..."
