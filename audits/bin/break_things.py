@@ -32,8 +32,8 @@ if dumps:
     print "I can't read this garbage!"
     for f in dumps:
         print "Translating %s..." % f
-        subprocess.call(["%s/bin/translate.sh" % ROOT, "%s/dumps/%s" % (ROOT, f),
-            ">>", "%s/tmp/%s" % (ROOT, RESULTS)])
+        log = open("%s/tmp%s" % (ROOT, RESULTS), 'a')
+        subprocess.call(["%s/bin/translate.sh" % ROOT, "%s/dumps/%s" % (ROOT, f)], stdout=log)
     if not DEBUG:
         print "Sic 'em, John!"
         subprocess.call(["%s/run/john" % JOHN, "--wordlist=%s/%s" % (ROOT, WORDLIST),
