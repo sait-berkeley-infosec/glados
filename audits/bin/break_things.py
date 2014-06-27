@@ -4,6 +4,7 @@
 
 import os
 import sys
+import subprocess
 
 #### Variables
 ROOT = "/opt/glados/audits"
