@@ -6,11 +6,13 @@
 ROOT="/opt/glados/audits"
 JAIL="/srv/sftpjail/home/audit"
 RESULTS="results-$(date +%F).jtr"
+CRACKED="cracked-$(date +%F).txt"
 JOHN="/opt/jtr"
 WORDLIST="/words.lst"
 NEW=0
 DUMPS=0
 
+DRYRUN=0
 echo "NWOLD SMASH!"
 if [ -f $JAIL/*.ldif ]
 then
@@ -35,6 +37,9 @@ then
         echo "Translating ${file}..."
         $ROOT/bin/translate.sh ${file} >> $ROOT/tmp/$RESULTS
     done
-    $JOHN/run/john --wordlist=$ROOT/$WORDLIST --rules $ROOT/tmp/$RESULTS
-    $JOHN/run/john --show $ROOT/tmp/$RESULTS
+    if [ $DRYRUN==0 ]
+    then
+        $JOHN/run/john --wordlist=$ROOT/$WORDLIST --rules $ROOT/tmp/$RESULTS
+    fi
+    $JOHN/run/john --show $ROOT/tmp/$RESULTS > $ROOT/tmp/$CRACKED
 fi
