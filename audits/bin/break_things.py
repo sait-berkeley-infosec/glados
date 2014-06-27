@@ -32,7 +32,7 @@ if dumps:
     print "I can't read this garbage!"
     for f in dumps:
         print "Translating %s..." % f
-        subprocess.call(["%s/bin/translate.sh" % ROOT, f,
+        subprocess.call(["%s/bin/translate.sh" % ROOT, "%s/dumps/%s" % (ROOT, f),
             ">>", "%s/tmp/%s" % (ROOT, RESULTS)])
     if not DEBUG:
         print "Sic 'em, John!"
