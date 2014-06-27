@@ -38,7 +38,7 @@ if dumps:
     if not DEBUG:
         print "Sic 'em, John!"
         subprocess.call(["%s/run/john" % JOHN, "--wordlist=%s/%s" % (ROOT, WORDLIST),
-            "--rules", "$s/tmp/$s" % (ROOT, RESULTS)])
+            "--rules", "%s/tmp/%s" % (ROOT, RESULTS)])
     else:
         print "...Where'd my dog go?! [DEBUG]"
     log = open("%s/tmp/%s" % (ROOT, CRACKED), 'a')
