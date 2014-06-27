@@ -22,11 +22,12 @@ for arg in sys.argv:
 print "NWOLD SMAAAAAAAASH!"
 subprocess.call(["mkdir", "-p", "%s/tmp" % ROOT])
 
-if os.listdir(JAIL):
+new_dumps = [n for n in os.listdir(JAIL) if n.endswith(".ldif")]
+if new_dumps:
     print "New dump files found!"
-    subprocess.call(["mv", "%s/*" % JAIL, "%s/dumps/" % ROOT])    
+    subprocess.call(["mv", "%s/*.ldif" % JAIL, "%s/dumps/" % ROOT])    
 
-dumps = os.listdir("%s/dumps/" % ROOT)
+dumps = [n for n in os.listdir("%s/dumps/" % ROOT) if n.endswith(".ldif")]
 if dumps:
     print "I can't read this garbage!"
     for f in dumps:
