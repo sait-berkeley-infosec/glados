@@ -14,10 +14,13 @@ CRACKED = "cracked.txt"
 JOHN = "/opt/jtr"
 WORDLIST = "words.lst"
 DEBUG = False
+USELOG = False
 
 for arg in sys.argv:
     if "debug" in arg:
         DEBUG = True
+    if "uselog" in arg:
+        USELOG = True
 
 print "NWOLD SMAAAAAAAASH!"
 subprocess.call(["mkdir", "-p", "%s/tmp" % ROOT])
@@ -42,7 +45,10 @@ if dumps:
     else:
         print "...Where'd my dog go?! [DEBUG]"
     log = open("%s/tmp/%s" % (ROOT, CRACKED), 'a')
-    subprocess.call("%s/run/john --show %s/tmp/%s | awk -F: '{print $1}'" % (JOHN, ROOT, RESULTS), shell=True, stdout=log)
+    if USELOG:
+        subprocess.call("grep", "'Cracked'", "%s/run/john/john.log" % (JOHN), stdout=log)
+    else:
+        subprocess.call("%s/run/john --show %s/tmp/%s | awk -F: '{print $1}'" % (JOHN, ROOT, RESULTS), shell=True, stdout=log)
     log.close()
 else:
     print "Nothing to see here..."
