@@ -20,9 +20,12 @@ if __name__ == '__main__':
     # Create the session
     session = Session(nessus_user, nessus_pw, nessus_host, nessus_port)
 
-    # List all of the reports
-    # Check our current stash of reports against the ones
-    # listed. Download the Nessus file of any uncached reports.
+    """
+    Get a list of every report available to us. Out of a certain timespan,
+    go ahead and check which reports available are currently cached on the
+    host. If they are not, then we should download and organize them.
+    If a cached report is out of the timespan, then we should remove it from the host.
+    """
 
     # Finally, close out of the session.
     session.close
