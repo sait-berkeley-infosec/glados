@@ -44,12 +44,14 @@ if dumps:
             "--rules", "%s/tmp/%s" % (ROOT, RESULTS)])
     else:
         print "...Where'd my dog go?! [DEBUG]"
+    '''
     log = open("%s/tmp/%s" % (ROOT, CRACKED), 'a')
     if USELOG:
         subprocess.call("grep", "'Cracked'", "%s/run/john/john.log" % (JOHN), stdout=log)
     else:
         subprocess.call("%s/run/john --show %s/tmp/%s | awk -F: '{print $1}'" % (JOHN, ROOT, RESULTS), shell=True, stdout=log)
     log.close()
+    '''
 else:
     print "Nothing to see here..."
 print "DONE."
